@@ -16,8 +16,14 @@ document.querySelector('.tab').addEventListener('click', (e) => {
     b.toggleAttribute('aria-current', b === tombol));
   document.querySelectorAll('.view').forEach((v) => {
     const aktif = v.id === state.tampilan;
-    v.hidden = !aktif;
-    v.classList.toggle('aktif', aktif);
+    if (aktif) {
+      v.hidden = false;
+      void v.offsetWidth;
+      v.classList.add('aktif');
+    } else {
+      v.classList.remove('aktif');
+      window.setTimeout(() => { if (v.id !== state.tampilan) v.hidden = true; }, 210);
+    }
   });
   if (state.tampilan === 'statistik') animasikanProgres(persenSelesai());
 });
