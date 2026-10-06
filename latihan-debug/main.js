@@ -31,9 +31,17 @@ function buatItem(t, denganAnimasi = false) {
   const li = document.createElement('li');
   li.dataset.id = t.id;
   li.classList.toggle('selesai', t.selesai);
-  li.innerHTML = `<input type="checkbox" aria-label="Tandai selesai"><span>${t.judul}</span>
-    <button type="button" aria-label="Hapus tugas">Hapus</button>`;
-  li.querySelector('input').checked = t.selesai;
+  const centang = document.createElement('input');
+  centang.type = 'checkbox';
+  centang.setAttribute('aria-label', 'Tandai selesai');
+  centang.checked = t.selesai;
+  const label = document.createElement('span');
+  label.textContent = t.judul;
+  const hapus = document.createElement('button');
+  hapus.type = 'button';
+  hapus.setAttribute('aria-label', 'Hapus tugas');
+  hapus.textContent = 'Hapus';
+  li.append(centang, label, hapus);
   if (denganAnimasi) {
     li.animate(
       [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
