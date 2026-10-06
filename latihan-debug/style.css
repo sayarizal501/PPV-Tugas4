@@ -34,3 +34,7 @@ button[type="submit"] { padding: 10px 16px; border: 0; border-radius: 6px; backg
 .kosong { color: var(--abu); }
 .progres { height: 14px; background: #dde3ea; border-radius: 7px; overflow: hidden; }
 .progres .isi { height: 100%; width: 100%; background: var(--aksen); transform: scaleX(0); transform-origin: left center; }
+@media (prefers-reduced-motion: reduce) {
+  .view { transition: none; }
+  * { animation-duration: 0.01ms !important; }
+}

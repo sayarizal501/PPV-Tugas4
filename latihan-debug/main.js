@@ -2,6 +2,7 @@
 // Aplikasi ini BERJALAN, tetapi animasi dan interaksinya bermasalah.
 // Jalankan, amati gejalanya, temukan penyebabnya, lalu perbaiki.
 const state = { tugas: [], tampilan: 'daftar' };
+const kurangiGerak = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const list = document.querySelector('#list');
 const kosong = document.querySelector('#kosong');
 const form = document.querySelector('#form');
@@ -18,10 +19,12 @@ document.querySelector('.tab').addEventListener('click', (e) => {
     const aktif = v.id === state.tampilan;
     if (aktif) {
       v.hidden = false;
+      if (kurangiGerak()) { v.classList.add('aktif'); return; }
       void v.offsetWidth;
       v.classList.add('aktif');
     } else {
       v.classList.remove('aktif');
+      if (kurangiGerak()) { v.hidden = true; return; }
       window.setTimeout(() => { if (v.id !== state.tampilan) v.hidden = true; }, 210);
     }
   });
@@ -42,7 +45,7 @@ function buatItem(t, denganAnimasi = false) {
   hapus.setAttribute('aria-label', 'Hapus tugas');
   hapus.textContent = 'Hapus';
   li.append(centang, label, hapus);
-  if (denganAnimasi) {
+  if (denganAnimasi && !kurangiGerak()) {
     li.animate(
       [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
       { duration: 250, easing: 'ease-out' });
@@ -73,6 +76,7 @@ list.addEventListener('click', async (e) => {
 }
 // Umpan balik salah isi: kotak isian bergetar
 function getar(el) {
+  if (kurangiGerak()) return;
   el.animate(
     [{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(-4px)' }, { transform: 'translateX(0)' }],
     { duration: 300, easing: 'ease-out' });
@@ -106,6 +110,13 @@ function persenSelesai() {
 }
 function animasikanProgres(target) {
   if (idProgres !== null) { clearInterval(idProgres); idProgres = null; }
+  if (kurangiGerak()) {
+    nilaiTampil = target;
+    angka.textContent = target;
+    isiProgres.style.transform = `scaleX(${target / 100})`;
+    bilah.setAttribute('aria-valuenow', String(target));
+    return;
+  }
   const arah = target >= nilaiTampil ? 1 : -1;
   idProgres = setInterval(() => {
     if (Math.round(nilaiTampil) === target) { clearInterval(idProgres); idProgres = null; return; }
