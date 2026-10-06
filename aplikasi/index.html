@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Pencatat Tugas Kuliah</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-row">
+      <div>
+        <h1>Aplikasi Pencatat Tugas</h1>
+        <p class="sub">Catat tugas kuliah kamu di sini.</p>
+      </div>
+      <nav class="nav" aria-label="Navigasi utama">
+        <button type="button" data-view="daftar" aria-current="page">Daftar</button>
+        <button type="button" data-view="statistik">Statistik</button>
+        <button type="button" data-view="tentang">Tentang</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- View 1: Daftar (dari Tugas 3) -->
+    <section id="view-daftar" class="view aktif" aria-labelledby="j-daftar">
+      <div class="grid">
+        <div class="card">
+          <h2 id="j-daftar">Tambah Tugas</h2>
+          <ul class="hint-list">
+            <li><kbd>Ctrl</kbd> + <kbd>K</kbd>: lompat ke kolom nama tanpa menyentuh mouse.</li>
+            <li><kbd>Enter</kbd>: simpan tugas langsung dari keyboard.</li>
+            <li><kbd>Esc</kbd>: kosongkan formulir dan ulangi isian dari awal.</li>
+          </ul>
+          <form id="taskForm" novalidate>
+            <label>Nama tugas <span id="charCount" class="count">0/60</span>
+              <input type="text" id="taskName" maxlength="60" placeholder="cth: Laporan Praktikum 5" autocomplete="off">
+              <small class="err" id="errName"></small>
+            </label>
+            <label>Mata kuliah
+              <input type="text" id="course" maxlength="40" placeholder="cth: Praktikum Pemrograman Visual">
+              <small class="err" id="errCourse"></small>
+            </label>
+            <div class="row">
+              <label>Deadline
+                <input type="date" id="deadline">
+                <small class="err" id="errDeadline"></small>
+              </label>
+              <label>Prioritas
+                <select id="priority">
+                  <option value="Rendah">Rendah</option>
+                  <option value="Sedang" selected>Sedang</option>
+                  <option value="Tinggi">Tinggi</option>
+                </select>
+              </label>
+            </div>
+            <div class="actions">
+              <button type="submit" id="btnSave">Simpan Tugas</button>
+              <button type="button" id="btnReset" class="ghost">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Daftar Tugas <span id="stat" class="badge">0 tugas tercatat · 0 sudah selesai</span></h2>
+          <div class="toolbar">
+            <input type="search" id="search" placeholder="Cari berdasarkan nama tugas atau mata kuliah…">
+            <select id="filter">
+              <option value="semua">Semua</option>
+              <option value="aktif">Belum selesai</option>
+              <option value="selesai">Selesai</option>
+              <option value="Tinggi">Prioritas Tinggi</option>
+            </select>
+          </div>
+          <div id="loading" class="loading" hidden>
+            <span class="spinner" aria-hidden="true"></span> Menyimpan…
+          </div>
+          <div id="empty" class="empty">
+            <p><strong>Belum ada tugas.</strong><br>Tambahkan lewat formulir tambah tugas.</p>
+          </div>
+          <ul id="taskList" class="list"></ul>
+          <p id="preview" class="preview" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 2: Statistik -->
+    <section id="view-statistik" class="view" aria-labelledby="j-stat" hidden>
+      <div class="card">
+        <h2 id="j-stat">Statistik</h2>
+        <p class="stat-angka">Selesai: <strong><span id="pct">0</span>%</strong> (<span id="doneCount">0</span>/<span id="totalCount">0</span> tugas)</p>
+        <div class="progres" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progres tugas selesai">
+          <div id="bar" class="bar-fill"></div>
+        </div>
+        <p class="muted">Bilah bergerak tiap kamu pindah ke tab ini. Hormat pengaturan kurangi-gerak.</p>
+        <div class="actions"><button type="button" id="btnKeDaftar">Kembali ke Daftar</button></div>
+      </div>
+      <div class="card hero-card">
+        <img src="assets/hero.svg" alt="Ilustrasi daftar tugas kuliah" width="640" height="360" id="imgHero">
+        <p class="muted" id="imgFallback" hidden>Gambar ilustrasi tidak dapat dimuat. Data tetap bisa dipakai.</p>
+      </div>
+    </section>
+
+    <!-- View 3: Tentang -->
+    <section id="view-tentang" class="view" aria-labelledby="j-tentang" hidden>
+      <div class="card tentang">
+        <img src="assets/ikon-tugas.svg" alt="Ikon tas kuliah" width="96" height="96" id="imgIkon">
+        <div>
+          <h2 id="j-tentang">Tentang Pembuat</h2>
+          <p><strong>sayarizal501</strong> · Kelas 3 D3 MM B · PENS</p>
+          <p class="muted">Prototipe Tugas 4 PPV TB033109: pengembangan Tugas 3 (pencatat tugas) + pola tabel/absen Tugas 1 + halaman CV Tugas 2.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Media &amp; Aksesibilitas</h2>
+        <ul class="fitur">
+          <li>Gambar <code>hero.svg</code> memakai <code>alt</code> + fallback bila gagal dimuat.</li>
+          <li>Ikon <code>ikon-tugas.svg</code> memakai <code>alt</code> + teks pendamping.</li>
+          <li>Animasi hanya <code>transform/opacity</code>, 150–400 ms, mati bila <code>prefers-reduced-motion</code>.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

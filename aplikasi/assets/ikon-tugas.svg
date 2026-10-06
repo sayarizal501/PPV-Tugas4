@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Ikon tas kuliah">
+  <rect x="14" y="34" width="68" height="48" rx="12" fill="#0b57d0"/>
+  <path d="M32 34V26a16 16 0 0 1 32 0v8" fill="none" stroke="#1f1f1f" stroke-width="8" stroke-linecap="round"/>
+  <rect x="40" y="52" width="16" height="12" rx="3" fill="#fff"/>
+</svg>

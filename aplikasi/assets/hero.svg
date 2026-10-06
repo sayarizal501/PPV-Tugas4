@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Ilustrasi pencatat tugas kuliah">
+  <rect width="640" height="360" rx="24" fill="#d3e3fd"/>
+  <rect x="60" y="60" width="520" height="240" rx="16" fill="#ffffff"/>
+  <rect x="90" y="95" width="220" height="18" rx="9" fill="#0b57d0"/>
+  <rect x="90" y="130" width="460" height="12" rx="6" fill="#dadce0"/>
+  <rect x="90" y="155" width="380" height="12" rx="6" fill="#dadce0"/>
+  <rect x="90" y="195" width="140" height="40" rx="20" fill="#0b57d0"/>
+  <rect x="245" y="195" width="140" height="40" rx="20" fill="#ffffff" stroke="#747775"/>
+  <circle cx="505" cy="215" r="28" fill="#ceead6"/>
+  <path d="M493 215l9 9 18-18" stroke="#0d652d" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
