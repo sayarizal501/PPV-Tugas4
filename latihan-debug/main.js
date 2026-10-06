@@ -61,12 +61,9 @@ function tampil() {
 }
 // Umpan balik salah isi: kotak isian bergetar
 function getar(el) {
-  let n = 0;
-  const id = setInterval(() => {
-    el.style.left = (n % 2 === 0 ? -6 : 6) + 'px';
-    n += 1;
-    if (n > 6) { clearInterval(id); el.style.left = '0px'; }
-  }, 40);
+  el.animate(
+    [{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(-4px)' }, { transform: 'translateX(0)' }],
+    { duration: 300, easing: 'ease-out' });
 }
 form.addEventListener('submit', (e) => {
   e.preventDefault();
