@@ -72,8 +72,7 @@ list.addEventListener('click', async (e) => {
     state.tugas = state.tugas.filter((x) => x.id !== id);
     li.remove();
     kosong.hidden = state.tugas.length > 0;
-  });
-}
+});
 // Umpan balik salah isi: kotak isian bergetar
 function getar(el) {
   if (kurangiGerak()) return;
