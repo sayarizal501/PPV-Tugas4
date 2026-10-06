@@ -52,7 +52,8 @@ function buatItem(t, denganAnimasi = false) {
 function tampil(animateId = null) {
   list.replaceChildren(...state.tugas.map((t) => buatItem(t, t.id === animateId)));
   kosong.hidden = state.tugas.length > 0;
-  list.addEventListener('click', (e) => {
+}
+list.addEventListener('click', (e) => {
     const li = e.target.closest('li');
     if (!li) return;
     const id = Number(li.dataset.id);
