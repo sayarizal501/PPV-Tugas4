@@ -111,7 +111,7 @@ function animasikanProgres(target) {
     if (Math.round(nilaiTampil) === target) { clearInterval(idProgres); idProgres = null; return; }
     nilaiTampil += arah;
     angka.textContent = Math.round(nilaiTampil);
-    isiProgres.style.width = nilaiTampil + '%';
+    isiProgres.style.transform = `scaleX(${nilaiTampil / 100})`;
   }, 16);
   bilah.setAttribute('aria-valuenow', String(target));
 }

@@ -33,4 +33,4 @@ button[type="submit"] { padding: 10px 16px; border: 0; border-radius: 6px; backg
 .list li button { border: 0; background: none; color: var(--merah); cursor: pointer; font: inherit; }
 .kosong { color: var(--abu); }
 .progres { height: 14px; background: #dde3ea; border-radius: 7px; overflow: hidden; }
-.progres .isi { height: 100%; width: 0; background: var(--aksen); }
+.progres .isi { height: 100%; width: 100%; background: var(--aksen); transform: scaleX(0); transform-origin: left center; }
