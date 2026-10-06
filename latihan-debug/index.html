@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kode Latihan Debugging Animasi — PPV TB033109</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1>Pencatat Tugas</h1>
+    <nav class="tab" aria-label="Tampilan">
+      <button type="button" data-view="daftar" aria-current="page">Daftar</button>
+      <button type="button" data-view="statistik">Statistik</button>
+    </nav>
+  </header>
+  <main>
+    <!-- Tampilan 1: daftar tugas -->
+    <section id="daftar" class="view aktif" aria-labelledby="judul-daftar">
+      <h2 id="judul-daftar">Daftar tugas</h2>
+      <form id="form" novalidate>
+        <label for="isian">Tugas baru</label>
+        <div class="baris">
+          <input id="isian" name="isian" autocomplete="off" placeholder="mis. Laporan PPV Tugas 4">
+          <button type="submit">Tambah</button>
+        </div>
+        <p id="pesan" class="pesan" role="alert"></p>
+      </form>
+      <ul id="list" class="list"></ul>
+      <p id="kosong" class="kosong">Belum ada tugas. Tulis satu tugas di atas lalu tekan Tambah.</p>
+    </section>
+    <!-- Tampilan 2: statistik -->
+    <section id="statistik" class="view" aria-labelledby="judul-stat" hidden>
+      <h2 id="judul-stat">Statistik</h2>
+      <p>Selesai: <strong id="angka">0</strong>%</p>
+      <div class="progres" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="isi-progres" class="isi"></div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js" defer></script>
+</body>
+</html>

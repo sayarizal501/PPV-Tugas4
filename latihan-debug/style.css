@@ -1,0 +1,36 @@
+:root {
+  --biru: #1f3b63;
+  --aksen: #2f7de1;
+  --merah: #b42318;
+  --abu: #5b6470;
+  --latar: #f5f7fa;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--latar); color: #1d2430; }
+.bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: var(--biru); color: #fff; }
+.bar h1 { margin: 0; font-size: 1.2rem; }
+.tab button { background: transparent; color: #fff; border: 1px solid #ffffff80; border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; }
+.tab button[aria-current="page"] { background: #fff; color: var(--biru); }
+main { max-width: 640px; margin: 0 auto; padding: 16px; }
+/* Transisi tampilan: JS hanya mengganti class, CSS yang menganimasikan */
+.view { opacity: 0; transform: translateY(8px); transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+.view.aktif { opacity: 1; transform: none; }
+.baris { display: flex; gap: 8px; }
+input { flex: 1; min-width: 0; padding: 10px; border: 1px solid #c4cad3; border-radius: 6px; font: inherit; }
+input[aria-invalid="true"] { border-color: var(--merah); }
+button[type="submit"] { padding: 10px 16px; border: 0; border-radius: 6px; background: var(--aksen);
+  color: #fff; font: inherit; cursor: pointer; }
+.pesan { min-height: 1.4em; margin: 6px 0 0; color: var(--merah); font-size: .9rem; }
+.list { list-style: none; padding: 0; margin: 16px 0 0; }
+.list li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 8px;
+  background: #fff; border-radius: 8px; box-shadow: 0 1px 2px #0000001a; overflow: hidden; }
+.list li.selesai span { text-decoration: line-through; color: var(--abu); }
+.list li span { flex: 1; overflow-wrap: anywhere; }
+.list li button { border: 0; background: none; color: var(--merah); cursor: pointer; font: inherit; }
+.kosong { color: var(--abu); }
+.progres { height: 14px; background: #dde3ea; border-radius: 7px; overflow: hidden; }
+.progres .isi { height: 100%; width: 0; background: var(--aksen); }
