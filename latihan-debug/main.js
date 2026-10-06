@@ -99,14 +99,16 @@ const angka = document.querySelector('#angka');
 const isiProgres = document.querySelector('#isi-progres');
 const bilah = document.querySelector('.progres');
 let nilaiTampil = 0;
+let idProgres = null;
 function persenSelesai() {
   if (state.tugas.length === 0) return 0;
   return Math.round((state.tugas.filter((t) => t.selesai).length / state.tugas.length) * 100);
 }
 function animasikanProgres(target) {
+  if (idProgres !== null) { clearInterval(idProgres); idProgres = null; }
   const arah = target >= nilaiTampil ? 1 : -1;
-  setInterval(() => {
-    if (Math.round(nilaiTampil) === target) return;
+  idProgres = setInterval(() => {
+    if (Math.round(nilaiTampil) === target) { clearInterval(idProgres); idProgres = null; return; }
     nilaiTampil += arah;
     angka.textContent = Math.round(nilaiTampil);
     isiProgres.style.width = nilaiTampil + '%';
