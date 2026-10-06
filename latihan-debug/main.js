@@ -27,20 +27,22 @@ document.querySelector('.tab').addEventListener('click', (e) => {
   });
   if (state.tampilan === 'statistik') animasikanProgres(persenSelesai());
 });
-function buatItem(t) {
+function buatItem(t, denganAnimasi = false) {
   const li = document.createElement('li');
   li.dataset.id = t.id;
   li.classList.toggle('selesai', t.selesai);
   li.innerHTML = `<input type="checkbox" aria-label="Tandai selesai"><span>${t.judul}</span>
     <button type="button" aria-label="Hapus tugas">Hapus</button>`;
   li.querySelector('input').checked = t.selesai;
-  li.animate(
-    [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
-    { duration: 250, easing: 'ease-out' });
+  if (denganAnimasi) {
+    li.animate(
+      [{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
+      { duration: 250, easing: 'ease-out' });
+  }
   return li;
 }
-function tampil() {
-  list.replaceChildren(...state.tugas.map((t) => buatItem(t)));
+function tampil(animateId = null) {
+  list.replaceChildren(...state.tugas.map((t) => buatItem(t, t.id === animateId)));
   kosong.hidden = state.tugas.length > 0;
   list.addEventListener('click', (e) => {
     const li = e.target.closest('li');
@@ -77,9 +79,10 @@ form.addEventListener('submit', (e) => {
   }
   pesan.textContent = '';
   isian.removeAttribute('aria-invalid');
-  state.tugas.push({ id: Date.now(), judul, selesai: false });
+  const idBaru = Date.now();
+  state.tugas.push({ id: idBaru, judul, selesai: false });
   isian.value = '';
-  tampil();
+  tampil(idBaru);
 });
 // Angka dan bilah progres bergerak ke nilai baru
 const angka = document.querySelector('#angka');
