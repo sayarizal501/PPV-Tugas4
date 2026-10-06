@@ -53,7 +53,7 @@ function tampil(animateId = null) {
   list.replaceChildren(...state.tugas.map((t) => buatItem(t, t.id === animateId)));
   kosong.hidden = state.tugas.length > 0;
 }
-list.addEventListener('click', (e) => {
+list.addEventListener('click', async (e) => {
     const li = e.target.closest('li');
     if (!li) return;
     const id = Number(li.dataset.id);
@@ -64,7 +64,8 @@ list.addEventListener('click', (e) => {
       return;
     }
     if (!e.target.matches('button')) return;
-    li.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: 'ease-in' });
+    const anim = li.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: 'ease-in' });
+    try { await anim.finished; } catch { /* abaikan bila dibatalkan */ }
     state.tugas = state.tugas.filter((x) => x.id !== id);
     li.remove();
     kosong.hidden = state.tugas.length > 0;
