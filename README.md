@@ -37,8 +37,8 @@ Semua hormat `prefers-reduced-motion` (JS `matchMedia` + CSS `@media`).
 
 | ID | Temuan (penguji, kapan) | Perbaikan | Uji ulang |
 |----|-------------------------|-----------|-----------|
-| U-01 | CONTOH: penguji 1 bingung tombol Selesai/Batal, 2 dari 2 penguji, 7 Okt 2026 | Tambah label + kontras tombol | Ditemukan <10 detik |
-| U-02 | CONTOH: filter "Tinggi" tak dipahami, 1 dari 2 penguji | Ganti label "Prioritas Tinggi" + hint | Dipahami tanpa tanya |
+| U-01 | Fara bingung menu "Daftar" dikira pendaftaran akun, 10 Okt 2026, 40 detik | Ganti label nav jadi "Daftar Tugas" | Uji ulang: langsung paham tanpa tanya |
+| U-02 | MENUNGGU DATA NIO (10 Okt 2026, 50 detik): bagian apa yang membingungkan? | - | - |
 
 Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas tanpa didampingi, catat waktu + bingungnya.
 
