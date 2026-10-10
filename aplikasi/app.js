@@ -107,6 +107,8 @@ function buatLi(t, animasi) {
 }
 
 let idAnimasiBaru = null;
+// Urutan prioritas: Tinggi selalu teratas agar tidak kelewat (temuan U-02).
+const bobotPrio = { Tinggi: 0, Sedang: 1, Rendah: 2 };
 function render() {
   preview.textContent = '';
   const q = searchI.value.trim().toLowerCase(), f = filterI.value;
@@ -116,7 +118,7 @@ function render() {
     if (f === 'selesai') return t.done;
     if (f === 'Tinggi') return t.prio === 'Tinggi';
     return true;
-  });
+  }).sort((a, b) => (bobotPrio[a.prio] - bobotPrio[b.prio]) || (b.id - a.id));
   list.replaceChildren(...shown.map((t) => buatLi(t, t.id === idAnimasiBaru)));
   idAnimasiBaru = null;
   emptyEl.style.display = tasks.length ? 'none' : 'block';

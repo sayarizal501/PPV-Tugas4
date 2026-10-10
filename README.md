@@ -38,7 +38,7 @@ Semua hormat `prefers-reduced-motion` (JS `matchMedia` + CSS `@media`).
 | ID | Temuan (penguji, kapan) | Perbaikan | Uji ulang |
 |----|-------------------------|-----------|-----------|
 | U-01 | Fara bingung menu "Daftar" dikira pendaftaran akun, 10 Okt 2026, 40 detik | Ganti label nav jadi "Daftar Tugas" | Uji ulang: langsung paham tanpa tanya |
-| U-02 | MENUNGGU DATA NIO (10 Okt 2026, 50 detik): bagian apa yang membingungkan? | - | - |
+| U-02 | Nio sulit bedakan Tinggi vs Sedang saat tugas banyak, takut kelewat, 10 Okt 2026, 50 detik | Daftar diurutkan Tinggi teratas + garis merah | Uji ulang: tugas Tinggi ketemu tanpa mencari |
 
 Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas tanpa didampingi, catat waktu + bingungnya.
 
