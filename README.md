@@ -16,7 +16,7 @@
 
 ## 2. Peta navigasi aplikasi (`aplikasi/`)
 
-Daftar (form + list) ke Statistik (angka + bar) ke Tentang (profil + media). Satu header `.nav`, `aria-current="page"` menandai aktif.
+Daftar Tugas (form + list) ke Statistik (angka + bar) ke Matkul (kelola daftar mata kuliah untuk dropdown) ke Tentang (profil + cara pakai). Satu header nav, `aria-current` menandai menu aktif.
 
 ## 3. Tabel animasi aplikasi
 

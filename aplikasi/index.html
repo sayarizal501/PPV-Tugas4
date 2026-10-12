@@ -16,6 +16,7 @@
       <nav class="nav" aria-label="Navigasi utama">
         <button type="button" data-view="daftar" aria-current="page">Daftar Tugas</button>
         <button type="button" data-view="statistik">Statistik</button>
+        <button type="button" data-view="matkul">Matkul</button>
         <button type="button" data-view="tentang">Tentang</button>
       </nav>
     </div>
@@ -33,7 +34,7 @@
               <small class="err" id="errName"></small>
             </label>
             <label>Mata kuliah
-              <input type="text" id="course" maxlength="40" placeholder="cth: Praktikum Pemrograman Visual">
+              <select id="course"></select>
               <small class="err" id="errCourse"></small>
             </label>
             <div class="row">
@@ -102,7 +103,22 @@
       </div>
     </section>
 
-    <!-- View 3: Tentang -->
+    <!-- View 3: Mata kuliah -->
+    <section id="view-matkul" class="view" aria-labelledby="j-matkul" hidden>
+      <div class="card">
+        <h2 id="j-matkul">Mata Kuliah</h2>
+        <ul id="matkulList" class="list"></ul>
+        <form id="matkulForm" novalidate>
+          <label>Tambah mata kuliah
+            <input type="text" id="matkulName" maxlength="60" placeholder="cth: Praktikum Animasi 3D" autocomplete="off">
+            <small class="err" id="matkulMsg"></small>
+          </label>
+          <div class="actions"><button type="submit">Tambah</button></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- View 4: Tentang -->
     <section id="view-tentang" class="view" aria-labelledby="j-tentang" hidden>
       <div class="card tentang">
         <img src="assets/ikon-tugas.svg" alt="Ikon tas kuliah" width="96" height="96" id="imgIkon">

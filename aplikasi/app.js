@@ -40,6 +40,47 @@ let tasks = [];
 try { tasks = JSON.parse(localStorage.getItem('tugas') || '[]'); } catch { tasks = []; }
 let idSeq = tasks.reduce((m, t) => Math.max(m, t.id || 0), 0) + 1;
 const save = () => localStorage.setItem('tugas', JSON.stringify(tasks));
+// Daftar mata kuliah untuk dropdown, bisa dikelola di view Matkul.
+const MK_AWAL = ['PRAKTIKUM ANIMASI 2D', 'ANIMASI 2D', 'SISTEM PEMANCAR', 'PRAKTIKUM SISTEM PEMANCAR', 'WORKSHOP UI/UX', 'PEMROGRAMAN VISUAL', 'JURNALISTIK', 'PRAKTIKUM PEMROGRAMAN VISUAL', 'JARINGAN KOMPUTER', 'PRAKTIKUM JARINGAN KOMPUTER', 'TEKNIK PENYIARAN', 'PRODUKSI KONTEN DIGITAL'];
+let matkuls = null;
+try { matkuls = JSON.parse(localStorage.getItem('matkul') || 'null'); } catch { matkuls = null; }
+if (!Array.isArray(matkuls) || !matkuls.length) matkuls = [...MK_AWAL];
+const saveMk = () => localStorage.setItem('matkul', JSON.stringify(matkuls));
+function renderMkOptions() {
+  const pilih = courseI.value;
+  courseI.replaceChildren(...matkuls.map((m) => {
+    const o = document.createElement('option');
+    o.value = m; o.textContent = m;
+    return o;
+  }));
+  if (matkuls.includes(pilih)) courseI.value = pilih;
+}
+function renderMatkul() {
+  $('matkulList').replaceChildren(...matkuls.map((m) => {
+    const li = document.createElement('li');
+    const nama = document.createElement('span');
+    nama.textContent = m;
+    const hapus = document.createElement('button');
+    hapus.type = 'button'; hapus.className = 'mini'; hapus.textContent = 'Hapus';
+    hapus.addEventListener('click', () => {
+      if (matkuls.length <= 1) { $('matkulMsg').textContent = 'Minimal 1 mata kuliah harus ada.'; return; }
+      matkuls = matkuls.filter((x) => x !== m);
+      saveMk(); renderMkOptions(); renderMatkul();
+    });
+    li.append(nama, hapus);
+    return li;
+  }));
+}
+$('matkulForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nama = $('matkulName').value.trim();
+  if (nama.length < 3) { $('matkulMsg').textContent = 'Nama minimal 3 huruf.'; return; }
+  if (matkuls.some((m) => m.toLowerCase() === nama.toLowerCase())) { $('matkulMsg').textContent = 'Sudah ada di daftar.'; return; }
+  matkuls.push(nama);
+  saveMk(); renderMkOptions(); renderMatkul();
+  $('matkulName').value = '';
+  $('matkulMsg').textContent = '';
+});
 const todayStr = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 deadI.min = todayStr();
 
@@ -202,5 +243,7 @@ document.addEventListener('keydown', (e) => {
 });
 $('btnReset').addEventListener('click', () => { form.reset(); $('charCount').textContent = '0/60'; validate(); });
 
+renderMkOptions();
 render();
+renderMatkul();
 updateStatCepat();
