@@ -30,7 +30,7 @@ Semua hormat `prefers-reduced-motion` (JS `matchMedia` + CSS `@media`).
 
 ## 4. Media
 
-1. `assets/hero.svg`: contoh daftar yang sudah terisi, tampil di keadaan kosong sebagai target pengguna. Ada `alt` dan kalimat pengganti bila gagal dimuat.
+1. `assets/hero.svg`: ilustrasi clipboard, kalender, dan pensil di keadaan kosong. Ada `alt` dan kalimat pengganti bila gagal dimuat.
 2. `assets/ikon-tugas.svg`: ikon tas kuliah. Ada `alt` dan disembunyikan rapi bila gagal dimuat.
 
 ## 5. Uji coba (ISI MANUAL: nama + tanggal)
@@ -63,7 +63,7 @@ Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas ta
 - Prioritas sebagai teks, merah hanya untuk Tinggi: merah berarti peringatan.
 - Kartu datar bergaris tepi: tidak ada yang melayang, jadi tanpa bayangan.
 - Radius dua tingkat: 12px kartu, 6px semua kontrol dan baris. Nav pil milik pemilik.
-- Hero berupa contoh daftar terisi di keadaan kosong: menunjukkan target pengguna.
+- Ilustrasi keadaan kosong: clipboard + kalender + pensil flat, sepalet aplikasi.
 - Fokus keyboard terlihat di semua kontrol: syarat pakai tanpa mouse.
 - Inter disematkan lokal (400/600/700): satu keluarga untuk aplikasi padat data, tetap jalan offline.
 - Angka statistik tabular: digit tidak bergeser saat animasi berjalan.

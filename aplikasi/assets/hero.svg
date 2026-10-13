@@ -1,16 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Ilustrasi daftar tugas kuliah">
-  <rect width="640" height="360" fill="#f4f1ea"/>
-  <rect x="70" y="40" width="500" height="280" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
-  <rect x="100" y="70" width="180" height="20" fill="#201d17"/>
-  <g font-family="sans-serif" font-size="20" fill="#201d17">
-    <rect x="100" y="115" width="26" height="26" fill="none" stroke="#201d17" stroke-width="3"/>
-    <text x="140" y="136">Laporan PPV Tugas 4</text>
-    <rect x="100" y="160" width="26" height="26" fill="#0b57d0" stroke="#0b57d0" stroke-width="3"/>
-    <path d="M105 173l7 7 13-14" stroke="#ffffff" stroke-width="4" fill="none"/>
-    <text x="140" y="181">Praktikum Basis Data</text>
-    <rect x="100" y="205" width="26" height="26" fill="none" stroke="#201d17" stroke-width="3"/>
-    <text x="140" y="226">Tugas Matematika 3</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200" role="img" aria-label="Ilustrasi mahasiswa mengelola daftar tugas">
+  <!-- Latar lingkaran krem -->
+  <circle cx="120" cy="105" r="88" fill="#f3ecdd"/>
+  <!-- Tumpukan dokumen di belakang -->
+  <rect x="140" y="60" width="64" height="82" rx="6" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+  <rect x="148" y="52" width="64" height="82" rx="6" fill="#f7f4ec" stroke="#ddd8cc" stroke-width="2"/>
+  <rect x="158" y="66" width="44" height="6" rx="3" fill="#ddd8cc"/>
+  <rect x="158" y="78" width="44" height="6" rx="3" fill="#ddd8cc"/>
+  <rect x="158" y="90" width="30" height="6" rx="3" fill="#ddd8cc"/>
+  <!-- Papan clipboard -->
+  <rect x="48" y="48" width="104" height="120" rx="8" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+  <rect x="88" y="40" width="24" height="14" rx="5" fill="#0b57d0"/>
+  <!-- Baris 1: belum selesai -->
+  <rect x="62" y="74" width="15" height="15" rx="3" fill="#ffffff" stroke="#8a8474" stroke-width="2"/>
+  <rect x="85" y="77" width="52" height="7" rx="3.5" fill="#ddd8cc"/>
+  <!-- Baris 2: selesai -->
+  <rect x="62" y="100" width="15" height="15" rx="3" fill="#0b57d0"/>
+  <path d="M65.5 107.5l4 4 8-9" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="85" y="103" width="38" height="7" rx="3.5" fill="#8a8474"/>
+  <!-- Baris 3: belum selesai -->
+  <rect x="62" y="126" width="15" height="15" rx="3" fill="#ffffff" stroke="#8a8474" stroke-width="2"/>
+  <rect x="85" y="129" width="45" height="7" rx="3.5" fill="#ddd8cc"/>
+  <!-- Kalender kecil -->
+  <rect x="168" y="28" width="44" height="40" rx="6" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+  <rect x="171" y="31" width="38" height="10" rx="3" fill="#0b57d0"/>
+  <circle cx="178" cy="50" r="2.6" fill="#ddd8cc"/>
+  <circle cx="190" cy="50" r="2.6" fill="#ddd8cc"/>
+  <circle cx="202" cy="50" r="2.6" fill="#0b57d0"/>
+  <circle cx="178" cy="60" r="2.6" fill="#ddd8cc"/>
+  <circle cx="190" cy="60" r="2.6" fill="#ddd8cc"/>
+  <!-- Pensil -->
+  <g transform="rotate(-28 168 162)">
+    <rect x="138" y="157" width="46" height="10" rx="2" fill="#f5b301"/>
+    <polygon points="184,157 196,162 184,167" fill="#e8d9b8"/>
+    <polygon points="191,160.4 196,162 191,163.6" fill="#201d17"/>
+    <rect x="132" y="157" width="6" height="10" fill="#0b57d0"/>
   </g>
-  <rect x="100" y="255" width="150" height="38" fill="#0b57d0"/>
-  <text x="175" y="281" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">Simpan</text>
+  <!-- Dekorasi bintang dan titik -->
+  <path d="M36 118l2.2 5.4 5.4 2.2-5.4 2.2-2.2 5.4-2.2-5.4-5.4-2.2 5.4-2.2z" fill="#0b57d0"/>
+  <path d="M208 128l1.8 4.4 4.4 1.8-4.4 1.8-1.8 4.4-1.8-4.4-4.4-1.8 4.4-1.8z" fill="#f5b301"/>
+  <circle cx="30" cy="70" r="3" fill="#0b57d0" opacity="0.35"/>
 </svg>

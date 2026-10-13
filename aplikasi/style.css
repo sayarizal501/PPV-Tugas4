@@ -20,23 +20,31 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--kertas);color:var(--tinta);line-height:1.6}
-.wrap{max-width:1000px;margin:0 auto;padding:20px 16px}
+/* Lebar 960: kartu tidak terlalu melebar di laptop, tetap lega di ponsel. */
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px}
 /* Bilah atas terang seperti semula: judul tinta, sub abu, nav pil. */
-.topbar{background:#fff;border-bottom:1px solid var(--garis)}
-.topbar h1{font-size:1.4rem;font-weight:650;letter-spacing:-.01em;color:var(--tinta)}
-.sub{color:var(--abu);font-size:.9rem;margin-top:2px}
+/* Sticky agar nav tetap terjangkau saat daftar tugas/matkul memanjang. */
+.topbar{background:#fff;border-bottom:1px solid var(--garis);position:sticky;top:0;z-index:20}
+.topbar h1{font-size:1.35rem;font-weight:700;letter-spacing:-.01em;color:var(--tinta)}
+.sub{color:var(--abu);font-size:.86rem;margin-top:2px}
 .topbar-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .nav{display:flex;gap:8px;flex-wrap:wrap}
-.nav button{padding:8px 16px;min-height:40px;border-radius:999px;border:1px solid #8a8474;background:transparent;color:var(--aksen);font-weight:650;font-size:.86rem;font-family:inherit;cursor:pointer}
+.nav button{padding:8px 16px;min-height:40px;border-radius:999px;border:1px solid #8a8474;background:transparent;color:var(--aksen);font-weight:700;font-size:.84rem;font-family:inherit;cursor:pointer}
 .nav button[aria-current="page"]{background:var(--aksen);border-color:var(--aksen);color:#fff}
+/* Interaksi nav terpisah dari tombol umum: teks biru tidak boleh di atas biru tua. */
+.nav button:hover{background:#e7edf7}
+.nav button:active{background:#d8e2f5}
+.nav button[aria-current="page"]:hover{background:var(--aksen-tua);border-color:var(--aksen-tua);color:#fff}
 /* Transisi antar-view: JS atur hidden+class, CSS yang menganimasikan */
 .view{opacity:0;transform:translateY(8px);transition:opacity 200ms ease-out,transform 200ms ease-out}
+/* Jarak isi ke header diseragamkan di semua view. */
+main>.view{margin-top:20px}
 .view.aktif{opacity:1;transform:none}
-.grid{display:grid;grid-template-columns:1fr 1.35fr;gap:20px;margin-top:20px;align-items:start}
+.grid{display:grid;grid-template-columns:1fr 1.35fr;gap:20px;align-items:start}
 @media(max-width:800px){.grid{grid-template-columns:1fr}}
 /* Kartu datar bergaris tepi: tidak ada yang melayang, jadi tanpa bayangan. */
 .card{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--r-kartu);padding:22px;margin-bottom:16px}
-.card h2{font-size:1.12rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.card h2{font-size:1.12rem;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
 .hint-list{list-style:none;margin:8px 0 0;padding:0;font-size:.82rem;color:var(--abu);display:flex;flex-direction:column;gap:6px}
 /* Bantuan pintasan di bawah form sebagai lipatan, bukan penghalang. */
 .hint{margin-top:14px;font-size:.82rem;color:var(--abu)}
@@ -51,26 +59,29 @@ input.invalid{border-color:var(--bahaya);background:#fef7f6}
 .count{float:right;font-weight:400;color:var(--abu);font-size:.78rem}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:520px){.row{grid-template-columns:1fr}}
-.actions{display:flex;gap:10px;margin-top:4px;flex-wrap:wrap}
+.actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
 /* Satu-satunya elemen biru di formulir: tombol yang menyelesaikan tugas. */
-button{padding:10px 20px;min-height:44px;border:1px solid transparent;border-radius:var(--r-kontrol);background:var(--aksen);color:#fff;font-weight:650;font-size:.9rem;font-family:inherit;cursor:pointer}
+button{padding:10px 20px;min-height:44px;border:1px solid transparent;border-radius:var(--r-kontrol);background:var(--aksen);color:#fff;font-weight:700;font-size:.9rem;font-family:inherit;cursor:pointer}
 button:hover{background:var(--aksen-tua)}
 button:active{background:#063fa0}
 button:disabled{opacity:.6;cursor:wait}
 button.ghost{background:transparent;color:var(--tinta);border-color:#8a8474}
 button.ghost:hover{background:#f1efe9}
-button:focus-visible,.nav button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--aksen);outline-offset:2px}
-.toolbar{display:flex;gap:10px;margin-bottom:14px}
+button:focus-visible,.nav button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--aksen);outline-offset:2px}
+.toolbar{display:flex;gap:10px;margin-bottom:16px}
 @media(max-width:520px){.toolbar{flex-direction:column}}
-/* Layar kecil: nav jadi 3 kolom sama rata, bukan wrap bebas. */
+/* Layar kecil: nav jadi 2x2 sama rata, bukan wrap bebas. */
 @media(max-width:520px){
   .topbar-row{flex-direction:column;align-items:stretch}
   .nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
   .nav button{border-radius:var(--r-kontrol);text-align:center;padding:8px 4px}
+  .card{padding:16px}
 }
 .toolbar input{flex:2}.toolbar select{flex:1}
-.list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.list li{background:#fff;border:1px solid var(--garis);border-left:3px solid var(--garis);border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+/* Baris daftar ramping: padding dan jarak diketatkan, tinggi sentuh 40px dipertahankan. */
+.list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.list li{background:#fff;border:1px solid var(--garis);border-left:3px solid var(--garis);border-radius:6px;padding:8px 12px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.list li:hover{background:#f1efe9}
 .list li.tinggi{border-left-color:var(--bahaya)}
 .list li.done{opacity:.6}
 .list li.done strong{text-decoration:line-through}
@@ -79,23 +90,28 @@ button:focus-visible,.nav button:focus-visible,input:focus-visible,select:focus-
 .tag{font-size:.78rem;white-space:nowrap;color:var(--abu)}
 .tag.Tinggi{color:var(--bahaya);font-weight:700}
 .tag.Sedang,.tag.Rendah{font-weight:400}
-.mini{width:auto;padding:7px 12px;font-size:.82rem;min-height:40px;background:transparent;color:var(--tinta);border-color:#8a8474}
-.mini:hover{background:#f1efe9}
-/* Keadaan kosong menyebut sebab dan satu tindakan pengisinya. */
-.empty{color:var(--abu);padding:28px 16px;border:1px dashed #8a8474;border-radius:var(--r-kartu);background:var(--kartu)}
-.empty strong{display:block;color:var(--tinta);font-size:1rem;margin-bottom:4px}
-/* Contoh daftar di keadaan kosong: target yang akan didapat pengguna. */
-.empty img{width:100%;max-width:340px;height:auto;display:block;margin:0 auto 12px}
+/* Tombol baris dirampingkan visualnya; tinggi sentuh tidak dikurangi. */
+.mini{width:auto;padding:6px 10px;font-size:.78rem;min-height:40px;background:transparent;color:var(--tinta);border-color:#8a8474}
+.mini:hover{background:#e8e4d8}
+/* Form di bawah daftar panjang diberi napas. */
+#matkulForm{margin-top:16px}
+/* Keadaan kosong: ilustrasi tengah, judul, deskripsi. Tanpa border putus-putus. */
+.empty{color:var(--abu);padding:12px 8px 8px;background:transparent;text-align:center}
+.empty strong{display:block;color:var(--tinta);font-size:1.02rem;margin:12px 0 4px}
+.empty p{margin:0}
+.empty img{width:200px;max-width:60%;height:auto;display:block;margin:0 auto}
+@media(max-width:520px){.empty img{width:160px}}
 .loading{display:flex;align-items:center;gap:10px;justify-content:center;padding:18px;font-weight:600}
 .loading[hidden]{display:none}
 .spinner{width:20px;height:20px;border:3px solid var(--garis);border-top-color:var(--aksen);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .preview{min-height:1.4em;font-size:.85rem;color:var(--abu);margin-top:12px}
-.stat-angka{font-size:1.05rem;margin:8px 0 12px;font-variant-numeric:tabular-nums}
+.stat-angka{font-size:1.05rem;margin:10px 0 14px;font-variant-numeric:tabular-nums}
 .progres{height:12px;background:#e7e2d5;border-radius:6px;overflow:hidden;margin-bottom:16px}
 .bar-fill{height:100%;width:100%;background:var(--aksen);transform:scaleX(0);transform-origin:left center}
 .muted{color:var(--abu);font-size:.88rem;margin-top:10px}
-.tentang img{max-width:100%;height:auto;display:block}
+/* Ikon Tentang proporsional terhadap teks: 72px, bukan 96px. */
+.tentang img{width:72px;height:72px;max-width:100%;display:block}
 .tentang{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .fitur{margin:8px 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
 img{max-width:100%}
