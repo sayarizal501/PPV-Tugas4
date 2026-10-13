@@ -65,5 +65,5 @@ Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas ta
 - Radius dua tingkat: 12px kartu, 6px semua kontrol dan baris. Nav pil milik pemilik.
 - Ilustrasi keadaan kosong: clipboard + kalender + pensil flat, sepalet aplikasi.
 - Fokus keyboard terlihat di semua kontrol: syarat pakai tanpa mouse.
-- Inter disematkan lokal (400/600/700): satu keluarga untuk aplikasi padat data, tetap jalan offline.
+- Inter disematkan lokal (400/600/700): satu keluarga untuk aplikasi padat data, tetap jalan offline. Sumber: Google Fonts https://fonts.google.com/specimen/Inter (lisensi SIL OFL). Basis kode aplikasi adalah Tugas 3 milik sendiri; tanpa salinan dari sumber luar.
 - Angka statistik tabular: digit tidak bergeser saat animasi berjalan.

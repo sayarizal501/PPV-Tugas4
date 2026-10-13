@@ -239,7 +239,7 @@ searchI.addEventListener('input', render);
 filterI.addEventListener('change', render);
 document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); pindahView('daftar'); nameI.focus(); }
-  if (e.key === 'Escape') { form.reset(); $('charCount').textContent = '0/60'; validate(); }
+  if (e.key === 'Escape' && !e.target.closest('#matkulForm')) { form.reset(); $('charCount').textContent = '0/60'; validate(); }
 });
 $('btnReset').addEventListener('click', () => { form.reset(); $('charCount').textContent = '0/60'; validate(); });
 
