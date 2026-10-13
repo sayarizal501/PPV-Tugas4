@@ -1,4 +1,4 @@
-# PPV Tugas 4, Prototipe Terpadu (Iqgam Afrizal)
+# PPV Tugas 4, Prototipe Terpadu (Iqgam Afrizal, 5125500042)
 
 ## 1. Tabel perbaikan bug latihan (`latihan-debug/`)
 
@@ -48,29 +48,8 @@ Semua hormat `prefers-reduced-motion` (JS `matchMedia` + CSS `@media`).
 | U-01 | Fara tidak paham menu Daftar, dikira pendaftaran akun. 1 dari 2 penguji, 10 Okt 2026, 40 detik | Ganti label nav jadi "Daftar Tugas" | Uji ulang: langsung paham tanpa tanya |
 | U-02 | Nio sulit bedakan Tinggi vs Sedang saat tugas banyak, takut kelewat. 1 dari 2 penguji, 10 Okt 2026, 50 detik | Daftar diurutkan Tinggi teratas + garis merah | Uji ulang: tugas Tinggi ketemu tanpa mencari |
 
-Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas tanpa didampingi, catat waktu + bingungnya.
+Cara uji: berikan aplikasi ke teman lalu diam; minta tambah dan selesaikan 1 tugas tanpa didampingi.
 
-## 6. Menjalankan ulang
+## 6. Sumber
 
-1. `latihan-debug/index.html`: klik ganda di Chrome/Firefox, F12.
-2. `aplikasi/index.html`: sama; data tersimpan di `localStorage`.
-3. Responsif: DevTools device 400px + laptop, pastikan tanpa scroll horizontal.
-
-## 7. Eviden pengumpulan
-
-- `git-log.txt`: dari `git log --oneline`
-- Rekaman 15 sampai 30 dtk MP4: rekam A-01 + A-02 (pakai Xbox Game Bar `Win+G` / OBS)
-- PDF max 4 hal: salin isi README ini + screenshot HP/laptop
-- ZIP `NRP_Nama_PPV_Tugas4.zip` isi `latihan-debug/ + aplikasi/ + git-log.txt + MP4`
-
-## 8. Catatan desain aplikasi (satu baris per keputusan)
-
-- Nav pil terpisah: status aktif terbaca dari isi penuh biru.
-- Biru hanya di Simpan, nav aktif, progres: menandai aksi utama dan status selesai.
-- Prioritas sebagai teks, merah hanya untuk Tinggi: merah berarti peringatan.
-- Kartu datar bergaris tepi: tidak ada yang melayang, jadi tanpa bayangan.
-- Radius dua tingkat: 12px kartu, 6px semua kontrol dan baris. Nav pil milik pemilik.
-- Ilustrasi keadaan kosong: clipboard + kalender + pensil flat, sepalet aplikasi.
-- Fokus keyboard terlihat di semua kontrol: syarat pakai tanpa mouse.
-- Inter disematkan lokal (400/600/700): satu keluarga untuk aplikasi padat data, tetap jalan offline. Sumber: Google Fonts https://fonts.google.com/specimen/Inter (lisensi SIL OFL). Basis kode aplikasi adalah Tugas 3 milik sendiri; tanpa salinan dari sumber luar.
-- Angka statistik tabular: digit tidak bergeser saat animasi berjalan.
+Font Inter: Google Fonts https://fonts.google.com/specimen/Inter (lisensi SIL OFL). Basis kode aplikasi adalah Tugas 3 milik sendiri; tanpa salinan dari sumber luar.
