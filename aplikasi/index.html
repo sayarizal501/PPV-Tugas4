@@ -11,7 +11,7 @@
     <div class="wrap topbar-row">
       <div>
         <h1>Aplikasi Pencatat Tugas</h1>
-        <p class="sub">Catat tugas kuliah kamu di sini.</p>
+        <p class="sub">Tulis tugas, tandai selesai, pantau progres.</p>
       </div>
       <nav class="nav" aria-label="Navigasi utama">
         <button type="button" data-view="daftar" aria-current="page">Daftar</button>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="card">
-          <h2>Daftar Tugas <span id="stat" class="badge">0 tugas tercatat · 0 sudah selesai</span></h2>
+          <h2>Daftar Tugas</h2>
           <div class="toolbar">
             <input type="search" id="search" placeholder="Cari berdasarkan nama tugas atau mata kuliah…">
             <select id="filter">
@@ -76,7 +76,9 @@
             <span class="spinner" aria-hidden="true"></span> Menyimpan…
           </div>
           <div id="empty" class="empty">
-            <p><strong>Belum ada tugas.</strong><br>Tambahkan lewat formulir tambah tugas.</p>
+            <img src="assets/hero.svg" alt="Contoh daftar tugas yang sudah terisi" width="640" height="360" id="imgHero">
+            <p class="muted" id="imgFallback" hidden>Gambar contoh tidak dapat dimuat. Isi formulir di samping, tekan Simpan Tugas.</p>
+            <p><strong>Daftar masih kosong.</strong> Isi formulir di samping, tekan Simpan Tugas.</p>
           </div>
           <ul id="taskList" class="list"></ul>
           <p id="preview" class="preview" aria-live="polite"></p>
@@ -92,12 +94,7 @@
         <div class="progres" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progres tugas selesai">
           <div id="bar" class="bar-fill"></div>
         </div>
-        <p class="muted">Bilah bergerak tiap kamu pindah ke tab ini. Hormat pengaturan kurangi-gerak.</p>
         <div class="actions"><button type="button" id="btnKeDaftar">Kembali ke Daftar</button></div>
-      </div>
-      <div class="card hero-card">
-        <img src="assets/hero.svg" alt="Ilustrasi daftar tugas kuliah" width="640" height="360" id="imgHero">
-        <p class="muted" id="imgFallback" hidden>Gambar ilustrasi tidak dapat dimuat. Data tetap bisa dipakai.</p>
       </div>
     </section>
 
@@ -107,16 +104,16 @@
         <img src="assets/ikon-tugas.svg" alt="Ikon tas kuliah" width="96" height="96" id="imgIkon">
         <div>
           <h2 id="j-tentang">Tentang Pembuat</h2>
-          <p><strong>sayarizal501</strong> · Kelas 3 D3 MM B · PENS</p>
-          <p class="muted">Prototipe Tugas 4 PPV TB033109: pengembangan Tugas 3 (pencatat tugas) + pola tabel/absen Tugas 1 + halaman CV Tugas 2.</p>
+          <p><strong>Iqgam Afrizal</strong> · Kelas 3 D3 MM B · PENS</p>
+          <p class="muted">Aplikasi pencatat tugas kuliah. Dibuat Iqgam Afrizal, kelas 3 D3 MM B, PENS.</p>
         </div>
       </div>
       <div class="card">
-        <h2>Media &amp; Aksesibilitas</h2>
+        <h2>Cara pakai</h2>
         <ul class="fitur">
-          <li>Gambar <code>hero.svg</code> memakai <code>alt</code> + fallback bila gagal dimuat.</li>
-          <li>Ikon <code>ikon-tugas.svg</code> memakai <code>alt</code> + teks pendamping.</li>
-          <li>Animasi hanya <code>transform/opacity</code>, 150–400 ms, mati bila <code>prefers-reduced-motion</code>.</li>
+          <li>Tulis tugas di formulir Daftar, tekan Simpan Tugas.</li>
+          <li>Tekan Selesai bila beres, Hapus bila batal.</li>
+          <li>Buka Statistik untuk melihat progres.</li>
         </ul>
       </div>
     </section>

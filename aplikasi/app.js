@@ -1,4 +1,4 @@
-// Aplikasi Tugas 4 — pengembangan Tugas 3 (Pencatat Tugas Kuliah)
+// Aplikasi Tugas 4, pengembangan Tugas 3 (Pencatat Tugas Kuliah)
 const $ = (id) => document.getElementById(id);
 const kurangiGerak = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -33,7 +33,7 @@ $('btnKeDaftar').addEventListener('click', () => pindahView('daftar'));
 
 const form = $('taskForm'), nameI = $('taskName'), courseI = $('course'),
   deadI = $('deadline'), prioI = $('priority'), list = $('taskList'),
-  emptyEl = $('empty'), loadEl = $('loading'), stat = $('stat'),
+  emptyEl = $('empty'), loadEl = $('loading'),
   searchI = $('search'), filterI = $('filter'), preview = $('preview');
 
 let tasks = [];
@@ -59,7 +59,7 @@ function validate() {
   return ok;
 }
 
-// A-02: umpan balik validasi gagal — getar via transform (bukan left), 300ms
+// A-02: umpan balik validasi gagal, getar via transform (bukan left), 300ms
 function getar(el) {
   if (kurangiGerak()) return;
   el.animate(
@@ -67,10 +67,11 @@ function getar(el) {
     { duration: 300, easing: 'ease-out' });
 }
 
-// A-01: kartu baru masuk — hanya item baru yang animasi, 250ms
+// A-01: kartu baru masuk, hanya item baru yang animasi, 250ms
 function buatLi(t, animasi) {
   const li = document.createElement('li');
   if (t.done) li.classList.add('done');
+  if (t.prio === 'Tinggi') li.classList.add('tinggi');
   const kiri = document.createElement('div');
   const kuat = document.createElement('strong');
   kuat.textContent = t.nama;
@@ -118,8 +119,6 @@ function render() {
   });
   list.replaceChildren(...shown.map((t) => buatLi(t, t.id === idAnimasiBaru)));
   idAnimasiBaru = null;
-  const done = tasks.filter((t) => t.done).length;
-  stat.textContent = `${tasks.length} tugas tercatat · ${done} sudah selesai`;
   emptyEl.style.display = tasks.length ? 'none' : 'block';
 }
 

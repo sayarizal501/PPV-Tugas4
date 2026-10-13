@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Ilustrasi pencatat tugas kuliah">
-  <rect width="640" height="360" rx="24" fill="#d3e3fd"/>
-  <rect x="60" y="60" width="520" height="240" rx="16" fill="#ffffff"/>
-  <rect x="90" y="95" width="220" height="18" rx="9" fill="#0b57d0"/>
-  <rect x="90" y="130" width="460" height="12" rx="6" fill="#dadce0"/>
-  <rect x="90" y="155" width="380" height="12" rx="6" fill="#dadce0"/>
-  <rect x="90" y="195" width="140" height="40" rx="20" fill="#0b57d0"/>
-  <rect x="245" y="195" width="140" height="40" rx="20" fill="#ffffff" stroke="#747775"/>
-  <circle cx="505" cy="215" r="28" fill="#ceead6"/>
-  <path d="M493 215l9 9 18-18" stroke="#0d652d" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Ilustrasi daftar tugas kuliah">
+  <rect width="640" height="360" fill="#f4f1ea"/>
+  <rect x="70" y="40" width="500" height="280" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+  <rect x="100" y="70" width="180" height="20" fill="#201d17"/>
+  <g font-family="sans-serif" font-size="20" fill="#201d17">
+    <rect x="100" y="115" width="26" height="26" fill="none" stroke="#201d17" stroke-width="3"/>
+    <text x="140" y="136">Laporan PPV Tugas 4</text>
+    <rect x="100" y="160" width="26" height="26" fill="#0b57d0" stroke="#0b57d0" stroke-width="3"/>
+    <path d="M105 173l7 7 13-14" stroke="#ffffff" stroke-width="4" fill="none"/>
+    <text x="140" y="181">Praktikum Basis Data</text>
+    <rect x="100" y="205" width="26" height="26" fill="none" stroke="#201d17" stroke-width="3"/>
+    <text x="140" y="226">Tugas Matematika 3</text>
+  </g>
+  <rect x="100" y="255" width="150" height="38" fill="#0b57d0"/>
+  <text x="175" y="281" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">Simpan</text>
 </svg>
