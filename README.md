@@ -18,6 +18,14 @@
 
 Daftar Tugas (form + list) ke Statistik (angka + bar) ke Matkul (kelola daftar mata kuliah untuk dropdown) ke Tentang (profil + cara pakai). Satu header nav, `aria-current` menandai menu aktif.
 
+```
+Header (semua halaman): [Daftar Tugas] [Statistik] [Matkul] [Tentang]
+           |                  |              |             |
+           v                  v              v             v
+     Daftar Tugas        Statistik         Matkul        Tentang
+     form + list         angka + bar       kelola list   info + cara pakai
+```
+
 ## 3. Tabel animasi aplikasi
 
 | ID | Fungsi | Pemicu | Properti | Durasi | Implementasi |
