@@ -4,15 +4,15 @@
 
 | No | Gejala | Penyebab (berkas:baris) | Perbaikan | Bukti |
 |----|--------|-------------------------|-----------|-------|
-| G1 | Pindah ke Statistik terjadi seketika; transisi memudar tidak terlihat | `main.js:17-21`, `hidden` dan `toggle aktif` dalam satu frame sehingga transisi mati | Tampilkan dulu (`hidden=false` + reflow) baru tambah `.aktif`; sembunyikan via `timeout 210ms` | Klik Daftar-Statistik: fade 200ms terlihat dua arah |
-| G2 | Pesan salah muncul, kotak isian tidak bergetar | `main.js getar`: `style.left` tanpa `position` | `element.animate()` keyframes `translateX`, 300ms | Isi "ab" + Tambah: bergetar, pesan muncul, fokus kembali |
-| G3 | Tiap tambah 1 tugas, semua kartu ikut beranimasi masuk | `main.js tampil/buatItem`: render ulang semua ikut animate | `buatItem(t, denganAnimasi)`; hanya id baru yang animate | Tambah 3 tugas: hanya kartu baru yang masuk |
-| G4 | Ketik `<b>`/`onerror` dieksekusi sebagai HTML | `main.js buatItem`: `innerHTML` + judul | `createElement` + `textContent` | Tambah `<b>tebal</b>`: tampil sebagai teks polos |
-| G5 | Centang kadang tidak mencoret | `main.js tampil`: listener di dalam `tampil()` sehingga menumpuk | Listener dipindah ke luar, daftar 1x | Tambah 3 tugas, centang pertama: langsung tercoret |
-| G6 | Hapus langsung lenyap; animasi keluar tak terlihat | handler hapus: `animate` lalu `remove()` sinkron | `await animation.finished` baru filter + `remove()` | Klik Hapus: fade-out 220ms terlihat penuh |
-| G7 | Bolak-balik Statistik makin cepat dan tak pernah berhenti | `animasikanProgres`: `setInterval` tanpa `clear` | Simpan `idProgres`; `clearInterval` tiap panggil dan saat target tercapai | Buka-tutup 5x: kecepatan tetap, panel Performance bersih |
-| G8 | Progres memaksa hitung ulang layout tiap langkah | `isiProgres.style.width` tiap 16ms | `width 100%` + `transform scaleX()` | Rekam Performance: tanpa peristiwa Layout |
-| G9 | Reduce-motion diabaikan sistem | tanpa `matchMedia`/`@media` | `kurangiGerak()` menjaga semua animasi + `@media reduce` | Emulasi reduce di DevTools: langsung nilai akhir |
+| G1 | Pindah ke Statistik terjadi seketika; transisi memudar tidak terlihat | `main.js:14-26`, layar disembunyikan dan animasi dinyalakan bersamaan sehingga transisi tak sempat terlihat | Tampilkan dulu (`hidden=false` + reflow) baru tambah `.aktif`; sembunyikan via `timeout 210ms` | Klik Daftar-Statistik: fade 200ms terlihat dua arah |
+| G2 | Pesan salah muncul, kotak isian tidak bergetar | `main.js:72`, fungsi getar menggeser kiri-kanan lewat posisi, padahal kotaknya tak bisa digeser begitu | `element.animate()` keyframes `translateX`, 300ms | Isi "ab" + Tambah: bergetar, pesan muncul, fokus kembali |
+| G3 | Tiap tambah 1 tugas, semua kartu ikut beranimasi masuk | `main.js:29-51`, tiap tambah data seluruh kartu digambar ulang dan semuanya ikut beranimasi | `buatItem(t, denganAnimasi)`; hanya id baru yang animate | Tambah 3 tugas: hanya kartu baru yang masuk |
+| G4 | Ketik `<b>`/`onerror` dieksekusi sebagai HTML | `main.js:29`, tulisan pengguna ditempel sebagai kode halaman sehingga bisa menjalankan perintah jahat | `createElement` + `textContent` | Tambah `<b>tebal</b>`: tampil sebagai teks polos |
+| G5 | Centang kadang tidak mencoret | `main.js:51-55`, pencatat klik didaftarkan ulang setiap daftar digambar, jadi satu klik dihitung berkali-kali | Listener dipindah ke luar, daftar 1x | Tambah 3 tugas, centang pertama: langsung tercoret |
+| G6 | Hapus langsung lenyap; animasi keluar tak terlihat | `main.js:59-70`, animasi hapus dijalankan tetapi kartunya langsung dibuang tanpa menunggu selesai | `await animation.finished` baru filter + `remove()` | Klik Hapus: fade-out 220ms terlihat penuh |
+| G7 | Bolak-balik Statistik makin cepat dan tak pernah berhenti | `main.js:104-114`, penghitung waktu baru dibuat setiap buka Statistik tanpa mematikan yang lama | Simpan `idProgres`; `clearInterval` tiap panggil dan saat target tercapai | Buka-tutup 5x: kecepatan tetap, panel Performance bersih |
+| G8 | Progres memaksa hitung ulang layout tiap langkah | `main.js:114` dan `style.css`, lebar bilah diubah tiap 16ms sehingga browser menghitung ulang terus-menerus | `width 100%` + `transform scaleX()` | Rekam Performance: tanpa peristiwa Layout |
+| G9 | Reduce-motion diabaikan sistem | `main.js:2` dan `style.css`, kode tidak memeriksa pengaturan kurangi-gerak milik pengguna | `kurangiGerak()` menjaga semua animasi + `@media reduce` | Emulasi reduce di DevTools: langsung nilai akhir |
 
 ## 2. Peta navigasi aplikasi (`aplikasi/`)
 
