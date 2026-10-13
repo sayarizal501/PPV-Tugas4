@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-label="Peta navigasi aplikasi Pencatat Tugas Kuliah">
+  <style>
+    text { font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif; }
+  </style>
+  <rect width="960" height="430" fill="#faf9f7"/>
+  <text x="480" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#201d17">Peta Navigasi Aplikasi</text>
+  <!-- Header dengan 4 menu -->
+  <rect x="130" y="60" width="700" height="64" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+  <text x="150" y="86" font-size="13" font-weight="700" fill="#57534a">HEADER (semua halaman)</text>
+  <rect x="150" y="94" width="120" height="18" rx="9" fill="#0b57d0"/>
+  <rect x="280" y="94" width="100" height="18" rx="9" fill="none" stroke="#8a8474" stroke-width="1.5"/>
+  <rect x="390" y="94" width="90" height="18" rx="9" fill="none" stroke="#8a8474" stroke-width="1.5"/>
+  <rect x="490" y="94" width="100" height="18" rx="9" fill="none" stroke="#8a8474" stroke-width="1.5"/>
+  <text x="210" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Daftar Tugas</text>
+  <text x="330" y="107" text-anchor="middle" font-size="11" font-weight="600" fill="#0b57d0">Statistik</text>
+  <text x="435" y="107" text-anchor="middle" font-size="11" font-weight="600" fill="#0b57d0">Matkul</text>
+  <text x="540" y="107" text-anchor="middle" font-size="11" font-weight="600" fill="#0b57d0">Tentang</text>
+  <!-- Panah -->
+  <defs>
+    <marker id="panah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#8a8474"/>
+    </marker>
+  </defs>
+  <line x1="210" y1="124" x2="120" y2="168" stroke="#8a8474" stroke-width="2" marker-end="url(#panah)"/>
+  <line x1="330" y1="124" x2="360" y2="168" stroke="#8a8474" stroke-width="2" marker-end="url(#panah)"/>
+  <line x1="435" y1="124" x2="600" y2="168" stroke="#8a8474" stroke-width="2" marker-end="url(#panah)"/>
+  <line x1="540" y1="124" x2="840" y2="168" stroke="#8a8474" stroke-width="2" marker-end="url(#panah)"/>
+  <!-- 4 halaman -->
+  <g>
+    <rect x="20" y="172" width="200" height="210" rx="10" fill="#ffffff" stroke="#0b57d0" stroke-width="2.5"/>
+    <text x="120" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#201d17">Daftar Tugas</text>
+    <text x="120" y="226" text-anchor="middle" font-size="12" fill="#57534a">form tambah</text>
+    <text x="120" y="246" text-anchor="middle" font-size="12" fill="#57534a">cari + filter</text>
+    <text x="120" y="266" text-anchor="middle" font-size="12" fill="#57534a">list + hapus</text>
+    <text x="120" y="286" text-anchor="middle" font-size="12" fill="#57534a">tandai selesai</text>
+    <text x="120" y="316" text-anchor="middle" font-size="12" font-weight="700" fill="#0b57d0">menu aktif: biru</text>
+    <text x="120" y="336" text-anchor="middle" font-size="12" fill="#57534a">animasi A-01, A-02</text>
+    <text x="120" y="356" text-anchor="middle" font-size="12" fill="#57534a">ilustrasi empty state</text>
+  </g>
+  <g>
+    <rect x="260" y="172" width="200" height="210" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+    <text x="360" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#201d17">Statistik</text>
+    <text x="360" y="226" text-anchor="middle" font-size="12" fill="#57534a">angka % selesai</text>
+    <text x="360" y="246" text-anchor="middle" font-size="12" fill="#57534a">bilah progres</text>
+    <text x="360" y="266" text-anchor="middle" font-size="12" fill="#57534a">animasi A-03</text>
+    <text x="360" y="286" text-anchor="middle" font-size="12" fill="#57534a">tombol kembali</text>
+  </g>
+  <g>
+    <rect x="500" y="172" width="200" height="210" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+    <text x="600" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#201d17">Matkul</text>
+    <text x="600" y="226" text-anchor="middle" font-size="12" fill="#57534a">daftar matkul</text>
+    <text x="600" y="246" text-anchor="middle" font-size="12" fill="#57534a">tambah baru</text>
+    <text x="600" y="266" text-anchor="middle" font-size="12" fill="#57534a">hapus (min. 1)</text>
+    <text x="600" y="286" text-anchor="middle" font-size="12" fill="#57534a">isi dropdown form</text>
+  </g>
+  <g>
+    <rect x="740" y="172" width="200" height="210" rx="10" fill="#ffffff" stroke="#ddd8cc" stroke-width="2"/>
+    <text x="840" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#201d17">Tentang</text>
+    <text x="840" y="226" text-anchor="middle" font-size="12" fill="#57534a">deskripsi app</text>
+    <text x="840" y="246" text-anchor="middle" font-size="12" fill="#57534a">cara pakai</text>
+    <text x="840" y="266" text-anchor="middle" font-size="12" fill="#57534a">ikon + gambar</text>
+  </g>
+  <text x="480" y="412" text-anchor="middle" font-size="12" fill="#57534a">Semua halaman terhubung lewat header. Tidak ada halaman buntu.</text>
+</svg>
