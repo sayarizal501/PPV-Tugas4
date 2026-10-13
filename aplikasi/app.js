@@ -33,7 +33,7 @@ $('btnKeDaftar').addEventListener('click', () => pindahView('daftar'));
 
 const form = $('taskForm'), nameI = $('taskName'), courseI = $('course'),
   deadI = $('deadline'), prioI = $('priority'), list = $('taskList'),
-  emptyEl = $('empty'), loadEl = $('loading'),
+  emptyEl = $('empty'), noMatchEl = $('noMatch'), loadEl = $('loading'),
   searchI = $('search'), filterI = $('filter'), preview = $('preview');
 
 let tasks = [];
@@ -122,6 +122,7 @@ function render() {
   list.replaceChildren(...shown.map((t) => buatLi(t, t.id === idAnimasiBaru)));
   idAnimasiBaru = null;
   emptyEl.style.display = tasks.length ? 'none' : 'block';
+  noMatchEl.hidden = tasks.length === 0 || shown.length > 0;
 }
 
 form.addEventListener('submit', (e) => {
@@ -195,7 +196,6 @@ courseI.addEventListener('input', validate);
 deadI.addEventListener('input', validate);
 searchI.addEventListener('input', render);
 filterI.addEventListener('change', render);
-prioI.addEventListener('change', () => { $('btnSave').textContent = `Simpan Tugas (${prioI.value})`; });
 document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); pindahView('daftar'); nameI.focus(); }
   if (e.key === 'Escape') { form.reset(); $('charCount').textContent = '0/60'; validate(); }

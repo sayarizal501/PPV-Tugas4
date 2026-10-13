@@ -1,3 +1,9 @@
+/* Font Inter disematkan lokal (assets/fonts) agar jalan offline.
+   Alasan pilih Inter: diminta pemilik; satu keluarga untuk semua teks
+   aplikasi daftar yang padat data, tanpa pasangan font tambahan. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/inter-latin-400.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/inter-latin-600.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/inter-latin-700.woff2") format("woff2")}
 /* Sistem: kertas + tinta + satu aksen.
    Alasan tiap keputusan ada di README bagian 8. */
 :root {
@@ -9,11 +15,11 @@
   --aksen: #0b57d0;
   --aksen-tua: #0847b3;
   --bahaya: #b3261e;
-  --r-kartu: 10px;
-  --r-kontrol: 4px;
+  --r-kartu: 12px;
+  --r-kontrol: 6px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--kertas);color:var(--tinta);line-height:1.6}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--kertas);color:var(--tinta);line-height:1.6}
 .wrap{max-width:1000px;margin:0 auto;padding:20px 16px}
 /* Bilah atas terang seperti semula: judul tinta, sub abu, nav pil. */
 .topbar{background:#fff;border-bottom:1px solid var(--garis)}
@@ -31,7 +37,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 /* Kartu datar bergaris tepi: tidak ada yang melayang, jadi tanpa bayangan. */
 .card{background:var(--kartu);border:1px solid var(--garis);border-radius:var(--r-kartu);padding:22px;margin-bottom:16px}
 .card h2{font-size:1.12rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
-.hint-list{list-style:none;margin:0 0 16px;padding:0;font-size:.82rem;color:var(--abu);display:flex;flex-direction:column;gap:6px}
+.hint-list{list-style:none;margin:8px 0 0;padding:0;font-size:.82rem;color:var(--abu);display:flex;flex-direction:column;gap:6px}
+/* Bantuan pintasan di bawah form sebagai lipatan, bukan penghalang. */
+.hint{margin-top:14px;font-size:.82rem;color:var(--abu)}
+.hint summary{cursor:pointer;font-weight:600}
 kbd{background:#f1efe9;color:var(--tinta);border:1px solid var(--garis);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:.75rem;font-family:inherit}
 label{display:block;font-size:.85rem;font-weight:600;margin-bottom:14px}
 input,select{width:100%;margin-top:6px;padding:10px 11px;border:1px solid #8a8474;border-radius:var(--r-kontrol);font-size:.95rem;background:#fff;color:var(--tinta);font-family:inherit;min-height:44px;max-width:100%}
@@ -53,6 +62,12 @@ button.ghost:hover{background:#f1efe9}
 button:focus-visible,.nav button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--aksen);outline-offset:2px}
 .toolbar{display:flex;gap:10px;margin-bottom:14px}
 @media(max-width:520px){.toolbar{flex-direction:column}}
+/* Layar kecil: nav jadi 3 kolom sama rata, bukan wrap bebas. */
+@media(max-width:520px){
+  .topbar-row{flex-direction:column;align-items:stretch}
+  .nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .nav button{border-radius:var(--r-kontrol);text-align:center;padding:8px 4px}
+}
 .toolbar input{flex:2}.toolbar select{flex:1}
 .list{list-style:none;display:flex;flex-direction:column;gap:8px}
 .list li{background:#fff;border:1px solid var(--garis);border-left:3px solid var(--garis);border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
@@ -76,8 +91,8 @@ button:focus-visible,.nav button:focus-visible,input:focus-visible,select:focus-
 .spinner{width:20px;height:20px;border:3px solid var(--garis);border-top-color:var(--aksen);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .preview{min-height:1.4em;font-size:.85rem;color:var(--abu);margin-top:12px}
-.stat-angka{font-size:1.05rem;margin:8px 0 12px}
-.progres{height:12px;background:#e7e2d5;border-radius:6px;overflow:hidden}
+.stat-angka{font-size:1.05rem;margin:8px 0 12px;font-variant-numeric:tabular-nums}
+.progres{height:12px;background:#e7e2d5;border-radius:6px;overflow:hidden;margin-bottom:16px}
 .bar-fill{height:100%;width:100%;background:var(--aksen);transform:scaleX(0);transform-origin:left center}
 .muted{color:var(--abu);font-size:.88rem;margin-top:10px}
 .tentang img{max-width:100%;height:auto;display:block}

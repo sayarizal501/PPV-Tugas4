@@ -62,6 +62,8 @@ Cara uji: buka `aplikasi/index.html`, minta teman tambah + selesaikan 1 tugas ta
 - Biru hanya di Simpan, nav aktif, progres: menandai aksi utama dan status selesai.
 - Prioritas sebagai teks, merah hanya untuk Tinggi: merah berarti peringatan.
 - Kartu datar bergaris tepi: tidak ada yang melayang, jadi tanpa bayangan.
-- Radius 4px kontrol, 10px kartu: kotak kecil terbaca sebagai alat.
+- Radius dua tingkat: 12px kartu, 6px semua kontrol dan baris. Nav pil milik pemilik.
 - Hero berupa contoh daftar terisi di keadaan kosong: menunjukkan target pengguna.
 - Fokus keyboard terlihat di semua kontrol: syarat pakai tanpa mouse.
+- Inter disematkan lokal (400/600/700): satu keluarga untuk aplikasi padat data, tetap jalan offline.
+- Angka statistik tabular: digit tidak bergeser saat animasi berjalan.
