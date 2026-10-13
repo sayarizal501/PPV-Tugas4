@@ -1,6 +1,3 @@
-// Kode latihan Tugas 4 — Praktikum Pemrograman Visual (TB033109)
-// Aplikasi ini BERJALAN, tetapi animasi dan interaksinya bermasalah.
-// Jalankan, amati gejalanya, temukan penyebabnya, lalu perbaiki.
 const state = { tugas: [], tampilan: 'daftar' };
 const kurangiGerak = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const list = document.querySelector('#list');
@@ -8,7 +5,6 @@ const kosong = document.querySelector('#kosong');
 const form = document.querySelector('#form');
 const isian = document.querySelector('#isian');
 const pesan = document.querySelector('#pesan');
-// Pindah tampilan
 document.querySelector('.tab').addEventListener('click', (e) => {
   const tombol = e.target.closest('button[data-view]');
   if (!tombol || tombol.dataset.view === state.tampilan) return;
@@ -73,7 +69,6 @@ list.addEventListener('click', async (e) => {
     li.remove();
     kosong.hidden = state.tugas.length > 0;
 });
-// Umpan balik salah isi: kotak isian bergetar
 function getar(el) {
   if (kurangiGerak()) return;
   el.animate(
@@ -97,7 +92,6 @@ form.addEventListener('submit', (e) => {
   isian.value = '';
   tampil(idBaru);
 });
-// Angka dan bilah progres bergerak ke nilai baru
 const angka = document.querySelector('#angka');
 const isiProgres = document.querySelector('#isi-progres');
 const bilah = document.querySelector('.progres');

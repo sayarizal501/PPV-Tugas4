@@ -1,8 +1,6 @@
-// Aplikasi Tugas 4, pengembangan Tugas 3 (Pencatat Tugas Kuliah)
 const $ = (id) => document.getElementById(id);
 const kurangiGerak = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Navigasi 3 view (pola fix G1: hidden + reflow agar transisi terlihat)
 let viewAktif = 'daftar';
 function pindahView(nama) {
   if (nama === viewAktif) return;
@@ -40,7 +38,6 @@ let tasks = [];
 try { tasks = JSON.parse(localStorage.getItem('tugas') || '[]'); } catch { tasks = []; }
 let idSeq = tasks.reduce((m, t) => Math.max(m, t.id || 0), 0) + 1;
 const save = () => localStorage.setItem('tugas', JSON.stringify(tasks));
-// Daftar mata kuliah untuk dropdown, bisa dikelola di view Matkul.
 const MK_AWAL = ['PRAKTIKUM ANIMASI 2D', 'ANIMASI 2D', 'SISTEM PEMANCAR', 'PRAKTIKUM SISTEM PEMANCAR', 'WORKSHOP UI/UX', 'PEMROGRAMAN VISUAL', 'JURNALISTIK', 'PRAKTIKUM PEMROGRAMAN VISUAL', 'JARINGAN KOMPUTER', 'PRAKTIKUM JARINGAN KOMPUTER', 'TEKNIK PENYIARAN', 'PRODUKSI KONTEN DIGITAL'];
 let matkuls = null;
 try { matkuls = JSON.parse(localStorage.getItem('matkul') || 'null'); } catch { matkuls = null; }
@@ -100,7 +97,6 @@ function validate() {
   return ok;
 }
 
-// A-02: umpan balik validasi gagal, getar via transform (bukan left), 300ms
 function getar(el) {
   if (kurangiGerak()) return;
   el.animate(
@@ -108,7 +104,6 @@ function getar(el) {
     { duration: 300, easing: 'ease-out' });
 }
 
-// A-01: kartu baru masuk, hanya item baru yang animasi, 250ms
 function buatLi(t, animasi) {
   const li = document.createElement('li');
   if (t.done) li.classList.add('done');
@@ -148,7 +143,6 @@ function buatLi(t, animasi) {
 }
 
 let idAnimasiBaru = null;
-// Urutan prioritas: Tinggi selalu teratas agar tidak kelewat (temuan U-02).
 const bobotPrio = { Tinggi: 0, Sedang: 1, Rendah: 2 };
 function render() {
   preview.textContent = '';
@@ -185,7 +179,6 @@ form.addEventListener('submit', (e) => {
   }, kurangiGerak() ? 50 : 400);
 });
 
-// Statistik: angka + bar scaleX (bukan width), rAF 350ms
 let rafStat = null;
 function persen() {
   if (!tasks.length) return 0;
@@ -225,7 +218,6 @@ function animasikanStatistik() {
   rafStat = requestAnimationFrame(step);
 }
 
-// Fallback media bila gagal dimuat
 $('imgHero').addEventListener('error', () => {
   $('imgHero').hidden = true;
   $('imgFallback').hidden = false;

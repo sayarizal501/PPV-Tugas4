@@ -20,6 +20,7 @@ main { max-width: 640px; margin: 0 auto; padding: 16px; }
 }
 .view.aktif { opacity: 1; transform: none; }
 .baris { display: flex; gap: 8px; }
+label[for="isian"] { display: block; margin-bottom: 8px; }
 input { flex: 1; min-width: 0; padding: 10px; border: 1px solid #c4cad3; border-radius: 6px; font: inherit; }
 input[aria-invalid="true"] { border-color: var(--merah); }
 button[type="submit"] { padding: 10px 16px; border: 0; border-radius: 6px; background: var(--aksen);
@@ -30,6 +31,7 @@ button[type="submit"] { padding: 10px 16px; border: 0; border-radius: 6px; backg
   background: #fff; border-radius: 8px; box-shadow: 0 1px 2px #0000001a; overflow: hidden; }
 .list li.selesai span { text-decoration: line-through; color: var(--abu); }
 .list li span { flex: 1; overflow-wrap: anywhere; }
+.list li input[type="checkbox"] { flex: none; width: 16px; height: 16px; margin: 0; }
 .list li button { border: 0; background: none; color: var(--merah); cursor: pointer; font: inherit; }
 .kosong { color: var(--abu); }
 .progres { height: 14px; background: #dde3ea; border-radius: 7px; overflow: hidden; }
