@@ -5,18 +5,18 @@
 | No | Gejala | Penyebab (berkas:baris) | Perbaikan | Bukti |
 |----|--------|-------------------------|-----------|-------|
 | G1 | Pindah ke Statistik terjadi seketika; transisi memudar yang ditulis di CSS tidak pernah terlihat. | `main.js:14-26`, tampilan disembunyikan dan ditampilkan dalam satu langkah; transisi tidak pernah terlihat. | Tampilkan dulu baru tambah `.aktif`; sembunyikan via `timeout 210ms`. | Klik Daftar-Statistik: fade 200ms terlihat dua arah. |
-| G2 | Pesan kesalahan muncul, tetapi kotak isian tidak bergetar sama sekali. | `main.js:72`, kotak isian digeser lewat posisi kiri; kotak tidak punya posisi sehingga tidak bergerak sama sekali. | Bergetar via `element.animate()` keyframes `translateX`, 300ms. | Isi "ab" + Tambah: bergetar, pesan muncul, fokus kembali. |
-| G3 | Setiap kali satu tugas ditambahkan, semua kartu ikut beranimasi masuk lagi. | `main.js:29-51`, setiap tambah data seluruh kartu dibuat ulang; semuanya ikut beranimasi masuk lagi. | Hanya kartu baru yang animate via `buatItem(t, denganAnimasi)`. | Tambah 3 tugas: hanya kartu baru yang masuk. |
+| G2 | Pesan kesalahan muncul, tetapi kotak isian tidak bergetar sama sekali. | `main.js:72`, kotak isian digeser lewat posisi kiri; kotak tidak punya posisi sehingga tidak bergerak sama sekali. | Bergetar via `element.animate()` keyframes `translateX`, 300ms. | Isi "ab" + Tambah: bergetar, pesan muncul, kursor kembali ke kolom. |
+| G3 | Setiap kali satu tugas ditambahkan, semua kartu ikut beranimasi masuk lagi. | `main.js:29-51`, setiap tambah data seluruh kartu dibuat ulang; semuanya ikut beranimasi masuk lagi. | Hanya kartu baru yang dianimasikan via `buatItem(t, denganAnimasi)`. | Tambah 3 tugas: hanya kartu baru yang masuk. |
 | G4 | Teks yang diketik pengguna diperlakukan sebagai HTML. | `main.js:29`, tulisan pengguna ditempel sebagai HTML; kode jahat bisa ikut berjalan. | Tampilkan tulisan via `textContent`, bukan `innerHTML`. | Tambah `<b>tebal</b>`: tampil sebagai teks polos. |
 | G5 | Setelah beberapa tugas ditambahkan, mencentang tugas kadang tidak mencoretnya. | `main.js:51-55`, pencatat klik didaftarkan setiap daftar digambar; satu klik dihitung berkali-kali. | Listener dipindah ke luar, daftar 1x. | Tambah 3 tugas, centang pertama: langsung tercoret. |
 | G6 | Saat Hapus diklik, kartu langsung lenyap; animasi keluar tidak pernah terlihat. | `main.js:59-70`, kartu langsung dibuang; animasi keluar tidak pernah terlihat. | Tunggu `animation.finished` baru filter + `remove()`. | Klik Hapus: fade-out 220ms terlihat penuh. |
 | G7 | Bolak-balik ke Statistik membuat angka progres makin cepat, kadang meloncat-loncat, dan pekerjaan di latar tidak pernah berhenti. | `main.js:104-114`, setiap buka Statistik membuat penghitung baru; yang lama tidak pernah berhenti. | Simpan `idProgres`; matikan tiap panggil dan saat target tercapai. | Buka-tutup 5x: kecepatan tetap, panel Performance bersih. |
-| G8 | Bilah progres dianimasikan dengan properti yang memaksa peramban menghitung ulang tata letak di setiap langkah. | `main.js:114` dan `style.css`, lebar bilah diubah tiap langkah; tata letak dihitung ulang setiap kali. | Lebar penuh + `transform scaleX()`. | Rekam Performance: tanpa peristiwa Layout. |
-| G9 | Pengguna yang mengaktifkan pengaturan "kurangi gerak" di sistem operasinya tetap mendapat semua animasi. | `main.js:2` dan `style.css`, pengaturan kurangi-gerak tidak pernah diperiksa; semua animasi tetap berjalan. | Periksa `kurangiGerak()` di semua animasi + `@media reduce`. | Emulasi reduce di DevTools: langsung nilai akhir. |
+| G8 | Bilah progres dianimasikan dengan properti yang memaksa peramban menghitung ulang tata letak di setiap langkah. | `main.js:114` dan `style.css`, lebar bilah diubah tiap langkah; tata letak dihitung ulang setiap kali. | Lebar penuh + `transform scaleX()`. | Direkam di Performance: tidak ada hitung ulang tata letak. |
+| G9 | Pengguna yang mengaktifkan pengaturan "kurangi gerak" di sistem operasinya tetap mendapat semua animasi. | `main.js:2` dan `style.css`, pengaturan kurangi-gerak tidak pernah diperiksa; semua animasi tetap berjalan. | Periksa `kurangiGerak()` di semua animasi + `@media reduce`. | Emulasi reduce di DevTools: nilai akhir langsung tampil. |
 
 ## 2. Peta navigasi aplikasi (`aplikasi/`)
 
-Daftar Tugas (form + list) ke Statistik (angka + bar) ke Matkul (kelola daftar mata kuliah untuk dropdown) ke Tentang (profil + cara pakai). Satu header nav, `aria-current` menandai menu aktif.
+Daftar Tugas (form + list) ke Statistik (angka + bar) ke Matkul (kelola daftar mata kuliah untuk dropdown) ke Tentang (profil + cara pakai). Menu yang aktif ditandai biru.
 
 ```
 Header (semua halaman): [Daftar Tugas] [Statistik] [Matkul] [Tentang]
@@ -32,9 +32,9 @@ Header (semua halaman): [Daftar Tugas] [Statistik] [Matkul] [Tentang]
 |----|--------|--------|----------|--------|--------------|
 | A-01 | Menunjukkan di mana data baru muncul | submit form valid | opacity dan transform | 250ms ease-out | `li.animate()` di `buatLi()` |
 | A-02 | Menandai isian yang salah | submit form invalid | translateX keyframes | 300ms ease-out | `getar()` via `element.animate()` |
-| A-03 | Menunjukkan progres penyelesaian | klik tab Statistik | scaleX dan opacity | 350ms / 200ms | `requestAnimationFrame` + transisi CSS |
+| A-03 | Menunjukkan progres penyelesaian | klik tab Statistik | scaleX dan opacity | 350ms (bar) / 200ms (pindah view) | `requestAnimationFrame` + transisi CSS |
 
-Semua hormat `prefers-reduced-motion` (JS `matchMedia` + CSS `@media`).
+Ketiganya berhenti bila pengaturan kurangi-gerak aktif.
 
 ## 4. Media
 
